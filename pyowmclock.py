@@ -107,9 +107,7 @@ GPIO.add_event_detect(29,GPIO.RISING,callback=button_callback4, bouncetime=500)
 
 def main():
 
-    brightness = -1
-    if brightness not in range(0, 16):
-        brightness = 1
+    brightness = 0
 
     print 'Initializing display ...'
     display = ClockDisplay()
@@ -118,7 +116,6 @@ def main():
 
     clock = TempClock(display)
 
-    last_temperature = 0
     global show_temp
     global update_alarm
     count = 20
