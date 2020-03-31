@@ -66,7 +66,7 @@ class TempClock(object):
         
 
     def update_alarm(self):
-       response = requests.get("http://192.168.5.148:8080/rest/items/AlarmClock/state")
+       response = requests.get("http://192.168.5.148:8080/rest/items/RunWakeUp/state")
        data = response.content
        if(data == "ON"):
           self._alarm = True
@@ -80,7 +80,7 @@ def button_callback2(channel):
     response = requests.post("http://192.168.5.148:8080/rest/items/Inside_Lts", data="OFF")
 
 def button_callback3(channel):
-    response = requests.post("http://192.168.5.148:8080/rest/items/AlarmClock", data="TOGGLE")
+    response = requests.post("http://192.168.5.148:8080/rest/items/RunWakeUp", data="TOGGLE")
     global update_alarm
     update_alarm=True
 
