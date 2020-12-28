@@ -74,13 +74,16 @@ class TempClock(object):
           self._alarm = False
 
 def button_callback1(channel):
-    response = requests.post("http://192.168.5.148:8080/rest/items/Mstr_Bedroom_Lights", data="TOGGLE" )
+    header = {"content-type": "text/plain"}
+    response = requests.post("http://192.168.5.148:8080/rest/items/Mstr_Bedroom_Lights", data="TOGGLE", headers=header )
 
 def button_callback2(channel):
-    response = requests.post("http://192.168.5.148:8080/rest/items/Inside_Lts", data="OFF")
+    header = {"content-type": "text/plain"}
+    response = requests.post("http://192.168.5.148:8080/rest/items/Inside_Lts", data="OFF", headers=header )
 
 def button_callback3(channel):
-    response = requests.post("http://192.168.5.148:8080/rest/items/RunWakeUp", data="TOGGLE")
+    header = {"content-type": "text/plain"}
+    response = requests.post("http://192.168.5.148:8080/rest/items/RunWakeUp", data="TOGGLE", headers=header )
     global update_alarm
     update_alarm=True
 
